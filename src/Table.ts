@@ -4,7 +4,7 @@ import { TableStyle } from "./Enums.ts";
 export class Table{
     private rows: Row[] = []
     private max_size:number = 0
-    private border_on:boolean = false
+    private border_on:boolean = true
     private header:Row|null = null
     private footer:Row|null = null
 
@@ -15,7 +15,7 @@ export class Table{
     constructor({
         columns= null,
         width= null,
-        tableStyle= TableStyle.DEFAULT
+        tableStyle= TableStyle.NONE
     }:{
         columns?: number|null, 
         width?:number|null,
@@ -24,6 +24,10 @@ export class Table{
         this.columns = columns
         this.width = width
         this.tableStyle = tableStyle
+
+        if(this.tableStyle == TableStyle.NONE){
+            this.border_on = false
+        }
 
         if(this.width != null){
             this.max_size = this.width
