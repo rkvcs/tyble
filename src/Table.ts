@@ -1,4 +1,4 @@
-import { Row } from "./Row.ts";
+import type { Row } from "./Row.ts";
 import { TableStyle } from "./Enums.ts";
 
 export class Table{

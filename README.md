@@ -3,10 +3,17 @@ Helper to create table on terminal.
 
 #### Example to create a table:
 ````ts
-    import { Row, Table, TableStyle, TextAlign } from "@rkvcs/tyble";
+    import { Column, Row, Table, TableStyle, TextAlign, TextStyle } from "@rkvcs/tyble";
+    import { Chalk } from "npm:chalk";
+
+    // Using chalk to format the columns.
+    const chalk = new Chalk();
     
-    const header = new Row("Col1", "Col2")
-    const footer = new Row("", "TOTAL: 123")
+    const header = new Row(new Column("Col1"), new Column("Col2"))
+    const footer = new Row(new Column(""), new Column(
+			"TOTAL: 123",
+			new TextStyle(chalk.blue).add(chalk.bold)
+		))
     
     header.setAlign(TextAlign.CENTER)
     footer.setAlign(TextAlign.RIGHT)
@@ -20,11 +27,19 @@ Helper to create table on terminal.
     table.addHeader(header)
     table.addFooter(footer)
     
-    table.add(new Row("Line 1", "Col 2"))
-    table.add(new Row("Line 2", "Col 2"))
-    table.add(new Row("Line 3", "Col 2"))
+    table.add(
+        new Row(new Column("Line 1"), 
+        new Column("Col 2"))
+    )
+    table.add(
+        new Row(new Column("Line 2"), 
+        new Column("Col 2"))
+    )
+    table.add(
+        new Row(new Column("Line 3"), 
+        new Column("Col 2"))
+    )
 
-    table.border() // enable borders
     console.info(table.render())
 ````
 
