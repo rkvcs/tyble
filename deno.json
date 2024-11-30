@@ -2,8 +2,5 @@
     "name": "@rkvcs/tyble",
     "version": "0.1.5",
     "exports": "./main.ts",
-    "tasks": {
-        "dev": "deno run --watch main.ts",
-        "run-example": "deno run -A main.ts"
-    }
+    "tasks": { }
 }
