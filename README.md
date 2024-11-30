@@ -43,6 +43,6 @@ Helper to create table on terminal.
     console.info(table.render())
 ````
 
-output:
+Table's styles:
 
 <img src="./screenshot.png" width="400"/>

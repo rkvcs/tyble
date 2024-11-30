@@ -12,6 +12,12 @@ export class Table{
     private columns:number|null
     private tableStyle: TableStyle
 
+    /**
+     * 
+     * @param .columns number total of columns that will be rendered
+     * @param .width max number of character that will be rendered
+     * @param .tableStyle style of the table (SIMPLE, DEFAULT, NONE)
+     */
     constructor({
         columns= null,
         width= null,
@@ -34,6 +40,7 @@ export class Table{
         }
     }
 
+    /** Change the style of the table. */
     public setStyle(tableStyle: TableStyle){
         this.tableStyle = tableStyle
 
@@ -54,6 +61,7 @@ export class Table{
         })
     }
 
+    /** Add new row to table. */
     public add(row: Row){
         if(this.width == null){
             row.all_columns().forEach(item => {
@@ -65,10 +73,12 @@ export class Table{
         this.rows.push(row)
     }
 
+    /** It will enable rendering the borders (if deactivated). */
     public border(){
         this.border_on = true
     }
 
+    /** Generates a line that represents a divider between rows. */
     public divider():string {
 
         if(this.border_on){
@@ -81,16 +91,19 @@ export class Table{
         }
 
         return ""
-
     }
 
+    /** Register a header on the table. */
     public addHeader(header: Row){
         this.header = header
     }
+
+    /** Register a footer on the table. */
     public addFooter(footer: Row){
         this.footer = footer
     }
 
+    /** Return a string with the table formatted. */
     public render():string {
         let tb_str:string = ""
 

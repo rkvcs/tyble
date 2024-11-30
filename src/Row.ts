@@ -12,7 +12,7 @@ export class Row {
 	private border_on: boolean = false;
 	private align = TextAlign.LEFT;
 
-    // Define all columns on the row.
+    /** Define all columns on the row. */
 	constructor(...columns: Column[]) {
 		columns.forEach((item) => {
 			this.columns.push(item);
@@ -23,37 +23,37 @@ export class Row {
 		});
 	}
 
-    // You can define the style of the borders of row.
+    /** You can define the style of the borders of row. */
 	public setBorderStyle(borderX: string = "") {
 		this.border_style = borderX;
 	}
 
-    // Get max size of characters in a Column.
+    /** Get max size of characters in a Column. */
 	public size(): number {
 		return this.max_size;
 	}
 
-    // Set max size of characters in a Column.
+    /** Set max size of characters in a Column. */
 	public setWidth(width: number) {
 		this.width = width;
 	}
 
-    // Active the borders to be rendered.
+    /** Active the borders to be rendered. */
 	public border() {
 		this.border_on = true;
 	}
 
-    // Set text align in the column.
+    /** Set text align in the column. */
 	public setAlign(align: TextAlign) {
 		this.align = align;
 	}
 
-    // Get a array of all columns in the row.
+    /** Get a array of all columns in the row. */
 	public all_columns(): Column[] {
 		return this.columns;
 	}
 
-    // Return a string with the row formatted.
+    /** Return a string with the row formatted. */
 	public render(num_cols: number | null = null): string {
 		let chars: string[] = [];
 

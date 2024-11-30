@@ -21,11 +21,18 @@
 export class TextStyle {
 	private fns: [(text: string) => string];
 
+    /**
+     * @param fn function that will apply some style to text
+     */
 	constructor(fn: (text: string) => string) {
         this.fns = [fn]
         return this
 	}
 
+    /**
+     * Add one more style to the stack of styles
+     * @param fn function that will apply some style to the text
+     */
     add(fn: (text: string) => string): TextStyle{
         this.fns.push(fn);
         return this
